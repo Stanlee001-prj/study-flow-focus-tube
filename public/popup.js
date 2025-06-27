@@ -33,6 +33,9 @@ class EduFocusPopup {
             'economics': ['economics', 'economic', 'market', 'finance', 'business', 'trade', 'money']
         };
 
+        this.chatType = 'general';
+        this.isTyping = false;
+
         this.init();
     }
 
@@ -63,6 +66,24 @@ class EduFocusPopup {
             if (e.key === 'Enter' && e.ctrlKey) {
                 this.saveNote();
             }
+        });
+
+        // Chatbot functionality
+        document.getElementById('send-chat').addEventListener('click', () => this.sendChatMessage());
+        document.getElementById('chat-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                this.sendChatMessage();
+            }
+        });
+
+        // Chat type buttons
+        document.querySelectorAll('.chat-type-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.chat-type-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                this.chatType = e.target.dataset.type;
+            });
         });
     }
 
@@ -263,6 +284,86 @@ class EduFocusPopup {
         const updatedNotes = notes.filter(note => note.id !== noteId);
         await chrome.storage.local.set({ notes: updatedNotes });
         this.loadNotes();
+    }
+
+    // Chatbot Functions
+    async sendChatMessage() {
+        if (this.isTyping) return;
+
+        const chatInput = document.getElementById('chat-input');
+        const message = chatInput.value.trim();
+        
+        if (!message) return;
+
+        this.addChatMessage(message, 'user');
+        chatInput.value = '';
+        this.isTyping = true;
+
+        // Show loading message
+        const loadingDiv = this.addLoadingMessage();
+
+        try {
+            const response = await this.callAIFunction(message, this.chatType);
+            loadingDiv.remove();
+            this.addChatMessage(response.response, 'ai');
+        } catch (error) {
+            console.error('Chat error:', error);
+            loadingDiv.remove();
+            this.addChatMessage('Sorry, I encountered an error. Please try again.', 'ai');
+        }
+
+        this.isTyping = false;
+    }
+
+    async callAIFunction(message, type) {
+        const response = await fetch('https://dwrpdhvfbuwhqoxpkeui.supabase.co/functions/v1/ai-chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cnBkaHZmYnV3aHFveHBrZXVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEwMDk0NzAsImV4cCI6MjA2NjU4NTQ3MH0._NfXbITHUQXHTKQa63bDTIY5PnH5dbpFZEoC-uBCKD4`
+            },
+            body: JSON.stringify({ message, type })
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        return await response.json();
+    }
+
+    addChatMessage(message, sender) {
+        const chatMessages = document.getElementById('chat-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `${sender}-message`;
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        contentDiv.textContent = message;
+        
+        messageDiv.appendChild(contentDiv);
+        chatMessages.appendChild(messageDiv);
+        
+        // Scroll to bottom
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        return messageDiv;
+    }
+
+    addLoadingMessage() {
+        const chatMessages = document.getElementById('chat-messages');
+        const loadingDiv = document.createElement('div');
+        loadingDiv.className = 'ai-message chat-loading';
+        loadingDiv.innerHTML = `
+            <div class="message-content">
+                🤖 Thinking<span class="loading-dots"></span>
+            </div>
+        `;
+        
+        chatMessages.appendChild(loadingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        return loadingDiv;
     }
 
     // Utility Functions

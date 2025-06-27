@@ -15,6 +15,36 @@
             <p>Stay focused on learning</p>
         </div>
 
+        <!-- AI Chatbot Section -->
+        <div class="section chatbot-section">
+            <h2>🤖 AI Study Assistant</h2>
+            <div class="chat-container">
+                <div class="chat-messages" id="chat-messages">
+                    <div class="ai-message">
+                        <div class="message-content">
+                            👋 Hi! I'm your AI study assistant. I can help you with:
+                            <br>• Solving problems and answering questions
+                            <br>• Creating quick tests and quizzes
+                            <br>• Clarifying doubts and explaining concepts
+                            <br>• Providing study tips and strategies
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <div class="chat-type-buttons">
+                        <button class="chat-type-btn active" data-type="general">💬 General</button>
+                        <button class="chat-type-btn" data-type="test">📝 Test Me</button>
+                        <button class="chat-type-btn" data-type="doubt">❓ Doubt</button>
+                        <button class="chat-type-btn" data-type="study">📚 Study Tips</button>
+                    </div>
+                    <div class="chat-input-row">
+                        <textarea id="chat-input" placeholder="Ask me anything about your studies..." maxlength="500"></textarea>
+                        <button id="send-chat" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Study Timer Section -->
         <div class="section timer-section">
             <h2>📚 Study Timer</h2>
