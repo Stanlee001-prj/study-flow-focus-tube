@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFocus</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎓 EduFocus</h1>
+            <p>Stay focused on learning</p>
+        </div>
+
+        <!-- Study Timer Section -->
+        <div class="section timer-section">
+            <h2>📚 Study Timer</h2>
+            <div class="timer-display">
+                <div class="timer-circle">
+                    <div class="timer-text">
+                        <span id="timer-minutes">25</span>:<span id="timer-seconds">00</span>
+                    </div>
+                    <div class="timer-label" id="timer-label">Focus Time</div>
+                </div>
+            </div>
+            <div class="timer-controls">
+                <button id="start-timer" class="btn btn-primary">Start</button>
+                <button id="pause-timer" class="btn btn-secondary" disabled>Pause</button>
+                <button id="reset-timer" class="btn btn-outline">Reset</button>
+            </div>
+            <div class="motivation-tip" id="motivation-tip">
+                💡 Tip: Take deep breaths and focus on one topic at a time
+            </div>
+        </div>
+
+        <!-- Subject Filter Section -->
+        <div class="section filter-section">
+            <h2>🎯 Subject Filter</h2>
+            <select id="subject-filter" class="select-dropdown">
+                <option value="">All Subjects</option>
+                <option value="math">Mathematics</option>
+                <option value="science">Science</option>
+                <option value="coding">Programming</option>
+                <option value="history">History</option>
+                <option value="language">Languages</option>
+                <option value="physics">Physics</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="biology">Biology</option>
+                <option value="literature">Literature</option>
+                <option value="economics">Economics</option>
+            </select>
+            <div class="filter-status" id="filter-status">Filter: Disabled</div>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="section settings-section">
+            <h2>⚙️ Settings</h2>
+            <div class="setting-item">
+                <label class="toggle-label">
+                    <input type="checkbox" id="night-mode-toggle">
+                    <span class="toggle-slider"></span>
+                    Night Mode
+                </label>
+            </div>
+            <div class="setting-item">
+                <label class="toggle-label">
+                    <input type="checkbox" id="distraction-warning" checked>
+                    <span class="toggle-slider"></span>
+                    Distraction Warnings
+                </label>
+            </div>
+        </div>
+
+        <!-- Notes Section -->
+        <div class="section notes-section">
+            <h2>📝 Quick Notes</h2>
+            <textarea id="note-input" placeholder="Type your study notes here..." maxlength="500"></textarea>
+            <button id="save-note" class="btn btn-primary">Save Note</button>
+            <div class="notes-list" id="notes-list">
+                <!-- Notes will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
