@@ -1,5 +1,5 @@
 
-/* EduFocus Extension - Injected Styles (Dark Theme) */
+/* EduFocus Extension - Injected Styles (Enhanced Dark Theme) */
 
 /* Warning Overlay Styles */
 .edufocus-warning-overlay {
@@ -8,8 +8,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(15, 15, 35, 0.95);
-    backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(25px);
     z-index: 10000;
     display: flex;
     align-items: center;
@@ -18,18 +18,19 @@
 }
 
 .edufocus-warning-content {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 50px 40px;
-    border-radius: 25px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 46, 0.9) 100%);
+    backdrop-filter: blur(25px);
+    border: 2px solid rgba(64, 224, 208, 0.3);
+    padding: 60px 50px;
+    border-radius: 30px;
     text-align: center;
-    max-width: 600px;
+    max-width: 650px;
     margin: 20px;
     box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    animation: edufocusSlideIn 0.5s ease;
+        0 25px 80px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(64, 224, 208, 0.3),
+        inset 0 1px 0 rgba(64, 224, 208, 0.2);
+    animation: edufocusSlideIn 0.6s ease;
     position: relative;
     overflow: hidden;
 }
@@ -40,22 +41,28 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(120, 119, 198, 0.8), transparent);
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(64, 224, 208, 0.8), rgba(138, 43, 226, 0.8), transparent);
 }
 
 .edufocus-warning-icon {
-    font-size: 64px;
-    margin-bottom: 25px;
-    filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.5));
+    font-size: 72px;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 0 25px rgba(255, 107, 107, 0.8));
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .edufocus-warning-content h2 {
     color: #ff6b6b;
-    margin-bottom: 20px;
-    font-size: 28px;
+    margin-bottom: 25px;
+    font-size: 32px;
     font-weight: 700;
-    text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+    text-shadow: 0 0 25px rgba(255, 107, 107, 0.5);
     background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -64,43 +71,46 @@
 
 .edufocus-warning-content p {
     color: #ffffff;
-    margin-bottom: 20px;
-    font-size: 16px;
+    margin-bottom: 25px;
+    font-size: 18px;
     line-height: 1.6;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 .edufocus-video-title {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(64, 224, 208, 0.2);
+    padding: 20px;
+    border-radius: 15px;
     font-style: italic;
-    font-size: 14px !important;
-    color: #b8c5ff !important;
-    margin: 25px 0 !important;
+    font-size: 16px !important;
+    color: #40e0d0 !important;
+    margin: 30px 0 !important;
+    box-shadow: 0 4px 15px rgba(64, 224, 208, 0.2);
 }
 
 .edufocus-warning-buttons {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
-    margin: 30px 0;
+    margin: 35px 0;
 }
 
 .edufocus-btn {
-    padding: 15px 30px;
+    padding: 18px 35px;
     border: none;
-    border-radius: 15px;
+    border-radius: 18px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 160px;
+    min-width: 180px;
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .edufocus-btn::before {
@@ -110,7 +120,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transition: left 0.5s;
 }
 
@@ -119,71 +129,74 @@
 }
 
 .edufocus-btn-continue {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     color: #ffffff;
 }
 
 .edufocus-btn-continue:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .edufocus-btn-back {
-    background: linear-gradient(135deg, #7877c6 0%, #ff77c6 100%);
-    border: 1px solid rgba(120, 119, 198, 0.3);
+    background: linear-gradient(135deg, #40e0d0 0%, #8a2be2 100%);
+    border: 2px solid rgba(64, 224, 208, 0.5);
     color: white;
-    box-shadow: 0 4px 20px rgba(120, 119, 198, 0.4);
+    box-shadow: 0 6px 25px rgba(64, 224, 208, 0.5);
 }
 
 .edufocus-btn-back:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(120, 119, 198, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(64, 224, 208, 0.7);
 }
 
 .edufocus-motivation {
-    background: linear-gradient(135deg, rgba(120, 219, 255, 0.1) 0%, rgba(255, 119, 198, 0.1) 100%);
-    border: 1px solid rgba(120, 219, 255, 0.3);
-    backdrop-filter: blur(10px);
-    padding: 20px;
-    border-radius: 15px;
-    margin-top: 25px;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.15) 0%, rgba(138, 43, 226, 0.15) 100%);
+    border: 1px solid rgba(0, 191, 255, 0.4);
+    backdrop-filter: blur(15px);
+    padding: 25px;
+    border-radius: 18px;
+    margin-top: 30px;
+    box-shadow: 0 4px 20px rgba(0, 191, 255, 0.2);
 }
 
 .edufocus-motivation p {
     margin: 0 !important;
-    font-size: 14px !important;
-    color: #b8c5ff !important;
+    font-size: 16px !important;
+    color: #40e0d0 !important;
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* Study Mode Indicator */
 .edufocus-study-badge {
     position: fixed;
-    top: 90px;
-    right: 25px;
-    background: linear-gradient(135deg, #7877c6 0%, #ff77c6 100%);
-    border: 1px solid rgba(120, 119, 198, 0.3);
-    backdrop-filter: blur(20px);
+    top: 100px;
+    right: 30px;
+    background: linear-gradient(135deg, #40e0d0 0%, #8a2be2 100%);
+    border: 2px solid rgba(64, 224, 208, 0.5);
+    backdrop-filter: blur(25px);
     color: white;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 14px;
+    padding: 15px 30px;
+    border-radius: 35px;
+    font-size: 15px;
     font-weight: 600;
     z-index: 9999;
     box-shadow: 
-        0 8px 25px rgba(120, 119, 198, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    animation: edufocusSlideIn 0.5s ease, glow 2s ease-in-out infinite alternate;
+        0 10px 30px rgba(64, 224, 208, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    animation: edufocusSlideIn 0.6s ease, glow 3s ease-in-out infinite alternate;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Animations */
+/* Enhanced Animations */
 @keyframes edufocusSlideIn {
     from {
         opacity: 0;
-        transform: translateY(-30px) scale(0.9);
+        transform: translateY(-40px) scale(0.8);
     }
     to {
         opacity: 1;
@@ -194,13 +207,13 @@
 @keyframes glow {
     from {
         box-shadow: 
-            0 8px 25px rgba(120, 119, 198, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            0 10px 30px rgba(64, 224, 208, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
     to {
         box-shadow: 
-            0 12px 35px rgba(120, 119, 198, 0.6),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            0 15px 40px rgba(64, 224, 208, 0.8),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4);
     }
 }
 
@@ -212,42 +225,42 @@
 .edufocus-filtered::before {
     content: '🎯';
     position: absolute;
-    top: 15px;
-    right: 15px;
-    background: linear-gradient(135deg, #7877c6 0%, #ff77c6 100%);
+    top: 18px;
+    right: 18px;
+    background: linear-gradient(135deg, #40e0d0 0%, #8a2be2 100%);
     color: white;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: 16px;
     z-index: 10;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(120, 119, 198, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 6px 20px rgba(64, 224, 208, 0.4);
 }
 
 /* Responsive Design */
 @media (max-width: 600px) {
     .edufocus-warning-content {
-        padding: 40px 25px;
-        margin: 15px;
-        border-radius: 20px;
+        padding: 45px 30px;
+        margin: 20px;
+        border-radius: 25px;
     }
     
     .edufocus-warning-content h2 {
-        font-size: 24px;
+        font-size: 28px;
     }
     
     .edufocus-warning-icon {
-        font-size: 48px;
+        font-size: 56px;
     }
     
     .edufocus-warning-buttons {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
     }
     
     .edufocus-btn {
@@ -256,28 +269,29 @@
     }
     
     .edufocus-study-badge {
-        right: 15px;
-        top: 80px;
-        font-size: 12px;
-        padding: 10px 20px;
+        right: 20px;
+        top: 90px;
+        font-size: 13px;
+        padding: 12px 25px;
     }
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
     .edufocus-warning-content {
-        border: 3px solid rgba(255, 255, 255, 0.5);
+        border: 4px solid rgba(64, 224, 208, 0.8);
     }
     
     .edufocus-btn-back {
-        border: 2px solid #7877c6;
+        border: 3px solid #40e0d0;
     }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
     .edufocus-warning-content,
-    .edufocus-study-badge {
+    .edufocus-study-badge,
+    .edufocus-warning-icon {
         animation: none;
     }
     
